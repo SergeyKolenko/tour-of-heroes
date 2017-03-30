@@ -3,19 +3,19 @@ import { NgModule } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { HttpModule } from '@angular/http';
 
-import { AppRoutingModule } from './app-routing.module';
+import { HeroesRouter } from './heroes/heroes.routes';
 
 // Imports for loading & configuring the in-memory web api
 import { InMemoryWebApiModule } from 'angular-in-memory-web-api';
-import { InMemoryDataService } from './in-memory-data.service';
+import { InMemoryDataService } from './shared/services/in-memory-data.service';
 
 import { AppComponent } from './app.component';
-import { HeroDetailComponent } from './hero-detail.component';
-import { HeroesComponent } from './heroes.component';
-import { DashboardComponent } from './dashboard.component';
+import { HeroDetailComponent } from './heroes/hero-detail/hero-detail.component';
+import { HeroesComponent } from './heroes/heroes.component';
+import { DashboardComponent } from './heroes/dashboard/dashboard.component';
 
-import { HeroService } from './hero.service';
-import { HeroSearchComponent } from './hero-search.component';
+import { HeroService } from './shared/services/hero.service';
+import { HeroSearchComponent } from './heroes/hero-search/hero-search.component';
 
 
 @NgModule({
@@ -31,7 +31,7 @@ import { HeroSearchComponent } from './hero-search.component';
     FormsModule,
     HttpModule,
     InMemoryWebApiModule.forRoot(InMemoryDataService),
-    AppRoutingModule
+    HeroesRouter
   ],
   providers: [HeroService],
   bootstrap: [AppComponent]
